@@ -17,6 +17,21 @@ class App extends Component {
 
   handleChange(value) {
     this.setState({ value });
+
+    setTimeout(() => {
+      const url = `http://api.openweathermap.org/data/2.5/weather?q=${this.state.value.value}&appid=9e05c48978408e6fcb878f531b80bbad`;
+      fetch(url)
+        .then(response => {
+          if (response.ok) {
+            return response
+          }
+          throw Error("Wystąpił bład")
+        })
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+        })
+    }, 0);
   }
 
   render() {
