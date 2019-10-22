@@ -1,1 +1,29 @@
-/* No CSS *//*# sourceMappingURL=Display.css.map */
+table, tbody {
+  width: 100%;
+}
+
+.display {
+  width: 480px;
+  margin: 30px auto;
+  text-align: left;
+}
+
+.display__header {
+  height: 30px;
+  background-color: #ddd;
+  text-align: center;
+}
+
+.display__header-item {
+  width: 120px;
+}
+
+.display__data {
+  height: 24px;
+  text-align: center;
+}
+
+.display__data-item {
+  width: 120px;
+}
+/*# sourceMappingURL=Display.css.map */

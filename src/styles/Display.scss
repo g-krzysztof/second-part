@@ -1,0 +1,24 @@
+table, tbody {
+    width: 100%;
+}
+
+.display {
+    width: 480px;
+    margin: 30px auto;
+    text-align: left;
+    &__header{
+        height: 30px;
+        background-color: #ddd;
+        text-align: center;      
+    }
+    &__header-item {
+        width: 120px;
+    }
+    &__data{
+        height: 24px;
+        text-align: center;
+    }
+    &__data-item {
+        width: 120px;
+    }
+}
