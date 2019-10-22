@@ -30,7 +30,7 @@ class App extends Component {
         const reciveData = {
           city: this.state.value.value,
           humidity: data.main.humidity,
-          time: new Date().toISOString().slice(11, 16),
+          time: new Date().toString().slice(16, 21),
           temp: data.main.temp,
           key: Date.now()
         }
