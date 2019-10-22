@@ -17,7 +17,7 @@ class App extends Component {
   ]
 
   fetchData = () => {
-    const url = `http://api.openweathermap.org/data/2.5/weather?q=${this.state.value.value}&appid=9e05c48978408e6fcb878f531b80bbad`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${this.state.value.value}&appid=9e05c48978408e6fcb878f531b80bbad`;
     fetch(url)
       .then(response => {
         if (response.ok) {

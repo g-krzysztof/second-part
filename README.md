@@ -2,7 +2,7 @@ Katosoftwarehouse - second part
 
 ## Version online
 
-[https://krzysztofg.pl/second-part](https://krzysztofg.pl/second-part)
+[https://krzysztofg.pl/second-part/](https://krzysztofg.pl/second-part/)
 
 ### What should be done:
 
