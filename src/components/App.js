@@ -12,13 +12,16 @@ class App extends Component {
   options = [
     { label: "London", value: "London" },
     { label: "München", value: "München" },
-    { label: "Tychy", value: "Tychy" },
-    { label: "Katowice", value: "Katowice" },
+    // { label: "Tychy", value: "Tychy" },
+    // { label: "Katowice", value: "Katowice" },
   ]
 
   handleChange(value) {
     // first setState: change a value to city name
     this.setState({ value });
+
+    // clear interval if exist
+    this.intervalClear();
 
     // fetch data for the set city name
     setTimeout(() => {
@@ -44,7 +47,44 @@ class App extends Component {
           // second setState: set city data to state and render view
           this.setState({ results });
         })
+      // set interval fetch data
+      this.setIntervalFetch();
     }, 0);
+  }
+
+  // placeholder for the interval - need can clear it later
+  intervalFetch;
+
+  // clear interval
+  intervalClear = () => {
+    window.clearInterval(this.intervalFetch);
+  }
+
+  // interval function - called at the end handleChange
+  setIntervalFetch = () => {
+    this.intervalFetch = window.setInterval(() => {
+      const url = `http://api.openweathermap.org/data/2.5/weather?q=${this.state.value.value}&appid=9e05c48978408e6fcb878f531b80bbad`;
+      fetch(url)
+        .then(response => {
+          if (response.ok) {
+            return response
+          }
+          throw Error("Wystąpił bład")
+        })
+        .then(response => response.json())
+        .then(data => {
+          const reciveData = {
+            city: this.state.value.value,
+            humidity: data.main.humidity,
+            time: new Date().toISOString().slice(11, 16),
+            temp: data.main.temp,
+            key: Date.now()
+          }
+          let results = [...this.state.results];
+          results.push(reciveData);
+          this.setState({ results });
+        })
+    }, 10000);
   }
 
   // on click reset button: clear data and reset App to onload state
@@ -52,7 +92,8 @@ class App extends Component {
     this.setState({
       value: { label: this.props.val, value: this.props.val },
       results: []
-    })
+    });
+    this.intervalClear();
   }
 
   render() {
