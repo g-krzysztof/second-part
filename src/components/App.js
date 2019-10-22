@@ -16,8 +16,10 @@ class App extends Component {
   ]
 
   handleChange(value) {
+    // first setState change a value to city name
     this.setState({ value });
 
+    // second setState fetch data for the set city name
     setTimeout(() => {
       const url = `http://api.openweathermap.org/data/2.5/weather?q=${this.state.value.value}&appid=9e05c48978408e6fcb878f531b80bbad`;
       fetch(url)
