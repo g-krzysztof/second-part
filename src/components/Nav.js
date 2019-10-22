@@ -1,10 +1,17 @@
 import React from 'react';
+import Select from 'react-select';
 import '../css/Nav.css'
 
-const Nav = () => {
+const Nav = (props) => {
     return (
         <>
-            <div>Nav</div>
+            <div className="Nav">
+                <Select
+                    options={props.options}
+                    value={props.value}
+                    onChange={props.onchange}
+                />
+            </div>
         </>
     );
 }
