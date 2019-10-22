@@ -1,1 +1,22 @@
-/* No CSS *//*# sourceMappingURL=App.css.map */
+.App {
+  width: 480px;
+  margin: 30px auto;
+  text-align: center;
+}
+
+.App__reset-btn {
+  background-color: #fff;
+  border: 1px solid #777;
+  color: #000000;
+  padding: 5px 15px;
+  cursor: pointer;
+  -webkit-transition: .2s;
+  transition: .2s;
+  font-size: 14px;
+}
+
+.App__reset-btn:hover {
+  background-color: #ddd;
+  border-color: #000000;
+}
+/*# sourceMappingURL=App.css.map */

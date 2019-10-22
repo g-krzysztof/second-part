@@ -32,7 +32,6 @@ class App extends Component {
         })
         .then(response => response.json())
         .then(data => {
-          console.log(data);
           const reciveData = {
             city: this.state.value.value,
             humidity: data.main.humidity,
@@ -48,6 +47,14 @@ class App extends Component {
     }, 0);
   }
 
+  // on click reset button: clear data and reset App to onload state
+  handleReset = () => {
+    this.setState({
+      value: { label: this.props.val, value: this.props.val },
+      results: []
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -55,6 +62,7 @@ class App extends Component {
           options={this.options}
           value={this.state.value}
           onchange={value => this.handleChange(value)} />
+        <button className="App__reset-btn" onClick={this.handleReset}>Reset</button>
         <Display
           results={this.state.results} />
       </div>
